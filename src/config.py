@@ -16,7 +16,7 @@ BM25_INDEX_PATH = str(
 )
 #原始文档目录
 RAW_DOC_PATH = str(
-    BASE_DIR / os.getenv("RAW_DOC_PATH", "data/raw/中二知识笔记.md")
+    BASE_DIR / os.getenv("RAW_DOC_PATH", "data/raw/电商客服手册.md")
 )
 #日志目录
 LOGGING_LOGGER= str(
