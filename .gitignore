@@ -1,0 +1,37 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+
+# ===== 环境变量与密钥 =====
+.env
+
+# ===== IDE =====
+.idea/
+.vscode/
+
+# ===== 测试 / 缓存 =====
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ===== 数据产物（本地向量库 / 日志）=====
+data/vector_store/
+data/logs/
+
+# ===== 项目特定产物 =====
+evaluation/reports/
+docs/  #
