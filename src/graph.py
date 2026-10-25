@@ -3,6 +3,7 @@
 组装 LangGraph：把节点连接成图。
 """
 from langgraph.graph import StateGraph, START, END
+from langgraph.checkpoint.memory import MemorySaver
 
 from src.state import OverallState
 from src.nodes import (
@@ -20,7 +21,7 @@ from src.nodes import (
 
 def build_graph():
     workflow = StateGraph(OverallState)
-
+    memory = MemorySaver()
     # ===== 添加节点 =====
     workflow.add_node("classify", classify_node)
     workflow.add_node("tools", tools_node)
@@ -64,7 +65,7 @@ def build_graph():
             "tools": "tools"
         }
     )
-    return workflow.compile()
+    return workflow.compile(checkpointer=memory)
 app = build_graph()
 if __name__ == "__main__":
     # 直接打印 Mermaid 代码

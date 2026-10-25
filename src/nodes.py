@@ -192,8 +192,10 @@ def generate_node(state: OverallState):
 3. 如果信息包含知识库内容，直接引用核心内容
 4. 如果两者都有，分点清晰回答
 """
-    response = llm.invoke(prompt)
-    return {"final_answer": response.content}
+    history = state.get("messages", [])
+    response = llm.invoke(history + [("user", prompt)])
+    return {"final_answer": response.content,
+            "messages": [("assistant", response.content)]}
 
 
 

@@ -1,6 +1,7 @@
 from langgraph.types import TypedDict
 from pydantic import BaseModel,Field
 from typing import Annotated,List,Literal
+from langgraph.graph.message import add_messages
 import operator
 
 #结构化输出
@@ -41,4 +42,5 @@ class OverallState(TypedDict):
     results: Annotated[List[str], operator.add]  #并行节点写入，用 operator.add 合并
     # 输出层
     final_answer: str
+    messages: Annotated[list, add_messages]
 

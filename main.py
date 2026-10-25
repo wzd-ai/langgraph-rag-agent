@@ -9,6 +9,7 @@ from src.state import OverallState
 
 
 def main():
+    config = {"configurable": {"thread_id": "user_001"}}
     print("=" * 50)
     print("知识库问答 Agent 已启动（输入 q 退出）")
     print("=" * 50)
@@ -34,7 +35,7 @@ def main():
         }
 
         try:
-            result = app.invoke(initial_state)
+            result = app.invoke(initial_state,config=config)
             print(f"\nAgent：{result['final_answer']}")
         except Exception as e:
             print(f"\n[错误] {e}")
